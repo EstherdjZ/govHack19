@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import axios from "axios";
 import { Row, Col, Button } from "react-bootstrap";
-import { Map, GoogleApiWrapper } from "google-maps-react";
+import { Map, GoogleApiWrapper, Polygon } from "google-maps-react";
 
 export class App extends Component {
   constructor() {
@@ -17,8 +17,18 @@ export class App extends Component {
       const res = await axios(
         `https://data.gov.au/geoserver/qld-suburb-locality-boundaries-psma-administrative-boundaries/wfs?request=GetFeature&typeName=ckan_6bedcb55_1b1f_457b_b092_58e88952e9f0&outputFormat=json`
       );
-      this.setState({ result: res });
-      console.log(this.state.result);
+      this.setState({ result: res.data.features });
+      const array1 = this.state.result.map(
+        subarray => subarray.geometry.coordinates[0][0][0]
+      );
+
+      const coorAr = [];
+
+      const array2 = array1.map(el => el.map(el1 => el1));
+
+      array2.map(el => coorAr.push({ lat: el[0], lng: el[1] }));
+
+      console.log(coorAr);
     } catch (error) {
       alert(error);
     }
