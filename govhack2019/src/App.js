@@ -3,6 +3,22 @@ import "./App.css";
 import { Row, Col } from "react-bootstrap";
 
 class App extends Component {
+  initMap = async () => {
+    const map = new google.maps.Map(document.getElementById("map"), {
+      center: { lat: -27.46794, lng: 153.02809 },
+      zoom: 8
+    });
+    map.data.loadGeoJson(
+      "https://data.gov.au/geoserver/qld-suburb-locality-boundaries-psma-administrative-boundaries/wfs?request=GetFeature&typeName=ckan_6bedcb55_1b1f_457b_b092_58e88952e9f0&outputFormat=json"
+    );
+  };
+
+  conponentDidMount() {
+    const api = fetch(
+      "https://maps.googleapis.com/maps/api/js?key=AIzaSyBL6mg5kAFhttbqmVLxl4ikklsb6eQbDHE&callback=initMap"
+    );
+  }
+
   render() {
     return (
       <div>
@@ -11,7 +27,7 @@ class App extends Component {
             1
           </Col>
           <Col md={8} xs={8} style={{ backgroundColor: "lightblue" }}>
-            2 of 2
+            <div id="map"></div>
           </Col>
         </Row>
       </div>
