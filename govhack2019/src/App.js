@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import "./App.css";
+
 import { Map, GoogleApiWrapper } from 'google-maps-react';
 
 import axios from "axios";
 import { Row, Col, Button } from "react-bootstrap";
-
 
 export class App extends Component {
   constructor() {
@@ -37,10 +37,121 @@ export class App extends Component {
 
       <div>
         <Row>
-          <Col md={3} xs={3} style={{ backgroundColor: "lightblue" }}>
-            1
+          <Col md={3} xs={3} style={{ backgroundColor: "lightblue"}}>
+            {/* Bar contain logo and search function */}
+            <Row> 
+              <Col 
+                style ={{margin:"4%"}}>
+                Computer Rice
+              </Col>
+            </Row>
+            
+            <Row>
+              <Col style={{margin:"0 7%"}}>
+                <input 
+                  name="search"
+                  type="text"
+                  size="17"/>
+              </Col>
+              <Col>
+                <input
+                  name="search"
+                  type="submit"
+                  value="Search"
+                  size="6"/>
+              </Col>
+              
+            </Row>
+
+            {/* Filter section
+            <Row style ={{marginTop:"5%"}}>
+              <Col style ={{marginLeft:"5%"}}>
+                <input 
+                  type="checkbox" 
+                  name="fiter"/> Salary
+              </Col>
+              <Col>
+                <input 
+                  type="checkbox" 
+                  name="fiter"/> Salary
+              </Col>
+              <Col>
+                <input 
+                  type="checkbox" 
+                  name="fiter"/> Salary
+              </Col>
+            </Row>
+
+            <Row style ={{marginTop:"5%"}}>
+              <Col style ={{marginLeft:"5%"}}>
+                <input 
+                  type="checkbox" 
+                  name="fiter"/> Salary
+              </Col>
+              <Col>
+                <input 
+                  type="checkbox" 
+                  name="fiter"/> Salary
+              </Col>
+              <Col>
+                <input 
+                  type="checkbox" 
+                  name="fiter"/> Salary
+              </Col>
+            </Row> */}
+
+            {/* Info about location */}
+            
+            <Row style ={{margin:"5%", marginRight:"0", marginTop:"10%"}}>
+              <Col xs={7}>
+                Total Population: 
+              </Col>
+              <Col>
+                data
+              </Col>
+            </Row>
+
+            <Row style ={{margin:"5%", marginRight:"0"}}>
+              <Col xs={7}>
+                Employed Person: 
+              </Col>
+              <Col>
+                data
+              </Col>
+            </Row>
+
+            <Row style ={{margin:"5%", marginRight:"0"}}>
+              <Col xs={7}>
+                Salary: 
+              </Col>
+              <Col>
+                data
+              </Col>
+            </Row>
+
+            <Row style ={{margin:"5%", marginRight:"0"}}>
+              <Col xs={7}>
+                Industry: 
+              </Col>
+              <Col>
+                data
+              </Col>
+            </Row>
+
+            <Row style ={{margin:"5%", marginRight:"0"}}>
+              <Col xs={7}>
+                Gender Rate: 
+              </Col>
+              <Col>
+                data
+              </Col>
+            </Row>
+
           </Col>
+          
           <Button onClick={this.fecthData}></Button>
+
+          {/* The MAP */}
           <Col
             md={7}
             xs={7}
