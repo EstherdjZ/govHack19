@@ -4,6 +4,7 @@ import { Row, Col } from "react-bootstrap";
 import {Map, GoogleApiWrapper} from 'google-maps-react';
 
 export class App extends Component {
+
   render() {
       const mapStyles = {
           width: '100%',
@@ -14,6 +15,9 @@ export class App extends Component {
         <Row>
           <Col md={4} xs={4} style={{ backgroundColor: "lightblue" }}>
             1
+          </Col>
+          <Col md={8} xs={8} style={{ backgroundColor: "lightblue" }}>
+            <div id="map"></div>
           </Col>
         </Row>
               <Map
