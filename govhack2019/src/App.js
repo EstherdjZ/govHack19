@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 
-import { Map, GoogleApiWrapper } from 'google-maps-react';
+import { Map, GoogleApiWrapper } from "google-maps-react";
 
 import axios from "axios";
 import { Row, Col, Button } from "react-bootstrap";
@@ -33,36 +33,24 @@ export class App extends Component {
       height: "100%"
     };
     return (
-
       <div>
         <Row>
-          <Col md={3} xs={3} style={{ backgroundColor: "lightblue"}}>
+          <Col md={3} xs={3} style={{ backgroundColor: "lightblue" }}>
             {/* Bar contain logo and search function */}
-            <Row> 
-              <Col 
-                style ={{margin:"4%"}}>
-                <img src={Logo} 
-                  alt="website logo"
-                  style={{width: "30%"}}/>
+            <Row>
+              <Col style={{ margin: "4%" }}>
+                <img src={Logo} alt="website logo" style={{ width: "30%" }} />
                 Computer Rice
               </Col>
             </Row>
-            
+
             <Row>
-              <Col style={{margin:"0 7%"}}>
-                <input 
-                  name="search"
-                  type="text"
-                  size="17"/>
+              <Col style={{ margin: "0 7%" }}>
+                <input name="search" type="text" size="17" />
               </Col>
               <Col>
-                <input
-                  name="search"
-                  type="submit"
-                  value="Search"
-                  size="6"/>
+                <input name="search" type="submit" value="Search" size="6" />
               </Col>
-              
             </Row>
 
             {/* Filter section
@@ -103,55 +91,67 @@ export class App extends Component {
             </Row> */}
 
             {/* Info about location */}
-            
-            <Row style ={{margin:"5%", marginRight:"0", marginTop:"10%"}}>
-              <Col xs={7}>
-                Total Population: 
-              </Col>
-              <Col>
-                data
-              </Col>
+
+            <Row style={{ margin: "5%", marginRight: "0", marginTop: "10%" }}>
+              <Col xs={7}>Total Population:</Col>
+              <Col>data</Col>
             </Row>
 
-            <Row style ={{margin:"5%", marginRight:"0"}}>
-              <Col xs={7}>
-                Employed Person: 
-              </Col>
-              <Col>
-                data
-              </Col>
+            <Row style={{ margin: "5%", marginRight: "0" }}>
+              <Col xs={7}>Employed Person:</Col>
+              <Col>data</Col>
             </Row>
 
-            <Row style ={{margin:"5%", marginRight:"0"}}>
-              <Col xs={7}>
-                Salary: 
-              </Col>
-              <Col>
-                data
-              </Col>
+            <Row style={{ margin: "5%", marginRight: "0" }}>
+              <Col xs={7}>Average Salary:</Col>
+              <Col>data</Col>
             </Row>
 
-            <Row style ={{margin:"5%", marginRight:"0"}}>
-              <Col xs={7}>
-                Industry: 
-              </Col>
-              <Col>
-                data
-              </Col>
+            <Row style={{ margin: "5%", marginRight: "0" }}>
+              <Col xs={7}>Industry:</Col>
+              <Col>data</Col>
             </Row>
 
-            <Row style ={{margin:"5%", marginRight:"0"}}>
-              <Col xs={7}>
-                Gender Rate: 
-              </Col>
-              <Col>
-                data
-              </Col>
+            <Row style={{ margin: "5%", marginRight: "0" }}>
+              <Col xs={7}>Gender Rate:</Col>
+              <Col>data</Col>
             </Row>
 
+            <Row style={{ margin: "5%", marginRight: "0" }}>
+              <Col xs={7}>Employed Person:</Col>
+              <Col>data</Col>
+            </Row>
+
+            <Row style={{ margin: "5%", marginRight: "0" }}>
+              <Col xs={7}>Company:</Col>
+              <Col>data</Col>
+            </Row>
+
+            <Row style={{ margin: "5%", marginRight: "0" }}>
+              <Col xs={7}>Unemployment rate:</Col>
+              <Col>data</Col>
+            </Row>
+
+            <Row style={{ margin: "5%", marginRight: "0" }}>
+              <Col xs={7}>Participant Rate:</Col>
+              <Col>data</Col>
+            </Row>
+
+            <Row style={{ margin: "5%", marginRight: "0" }}>
+              <Col xs={7}>Labour Force:</Col>
+              <Col>data</Col>
+            </Row>
+
+            <Row style={{ margin: "5%", marginRight: "0" }}>
+              <Col xs={7}>Lowest salary:</Col>
+              <Col>data</Col>
+            </Row>
+
+            <Row style={{ margin: "5%", marginRight: "0" }}>
+              <Col xs={7}>High Salary:</Col>
+              <Col>data</Col>
+            </Row>
           </Col>
-          
-          <Button onClick={this.fecthData}></Button>
 
           {/* The MAP */}
           <Col
