@@ -1,6 +1,10 @@
 // Map Init
 var map;
-var array;
+
+getResult();
+
+var suburb = [];
+var people = [];
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
@@ -13,7 +17,6 @@ function initMap() {
   );
   map.data.addListener("click", function(event) {
     geocodeLatLng(geocoder, event.latLng.lat(), event.latLng.lng());
-    getResult();
   });
   map.data.setStyle({
     fillColor: "#C7B2B2",
@@ -32,7 +35,20 @@ function geocodeLatLng(geocoder, lat, long) {
 
         document.querySelector(".surburb").textContent = arrRes[0];
 
-        console.log(res);
+        var sub = arrRes[0].split(" ")[1];
+        //console.log(sub);
+        suburb.forEach(function(element) {
+          if (element.includes(sub)) {
+            //console.log(suburb.indexOf(element));
+            // console.log(element);
+            // console.log(suburb.indexOf(element) + 1);
+            document.querySelector(".population").textContent =
+              suburb.indexOf(element) + 1;
+            return true;
+          }
+        });
+
+        console.log(arrRes[0]);
       } else {
         window.alert("No results found");
       }
@@ -42,11 +58,39 @@ function geocodeLatLng(geocoder, lat, long) {
   });
 }
 
-async function getResult() {
-  const fetchPromise = await fetch("population.json");
-  const res = await fetchPromise.json();
-  //   const surburb = await res.records.map(el => );
-  //   const poplulation = await res.records.map(el =>
-  //     console.log(el[el.length - 1])
-  //   );
+function getResult() {
+  const fetchPromise = fetch("population.json");
+  fetchPromise
+    .then(response => {
+      return response.json();
+    })
+    .then(people => {
+      var result = JSON.stringify(people);
+      var resultArray = result.substr(1572).split("]");
+
+      // resultArray.map
+
+      var tmpsuburb = [];
+      //var tmppeople = [];
+
+      resultArray.forEach(function(element) {
+        // console.log(element);
+        var subArray = element.split(",");
+        // console.log(subArray);
+        tmpsuburb.push(subArray[2]);
+        tmpsuburb.push(subArray[subArray.length - 1]);
+        // console.log(subArray[2]);
+        // console.log(subArray[subArray.length - 1]);
+      });
+
+      suburb = tmpsuburb;
+      //people = tmppeople;
+      // console.log(suburb.length);
+      // console.log(people.length);
+
+      // console.log(people);
+
+      //people => (jsonFile = JSON.parse(people));
+      //console.log(people);
+    });
 }
