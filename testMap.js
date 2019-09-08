@@ -1,5 +1,6 @@
 // Map Init
 var map;
+var array;
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
@@ -41,15 +42,11 @@ function geocodeLatLng(geocoder, lat, long) {
   });
 }
 
-function getResult() {
-  const fetchPromise = fetch("population.json");
-  fetchPromise
-    .then(response => {
-      return response.json();
-    })
-    .then(people => {
-      console.log(people);
-      //people => (jsonFile = JSON.parse(people));
-      //console.log(people);
-    });
+async function getResult() {
+  const fetchPromise = await fetch("population.json");
+  const res = await fetchPromise.json();
+  //   const surburb = await res.records.map(el => );
+  //   const poplulation = await res.records.map(el =>
+  //     console.log(el[el.length - 1])
+  //   );
 }
