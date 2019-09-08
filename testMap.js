@@ -42,13 +42,14 @@ function geocodeLatLng(geocoder, lat, long) {
 }
 
 function getResult() {
-  const fetchPromise = fetch("136a3438-1120-4bfd-8617-f870edfcd4c8.json");
+  const fetchPromise = fetch("population.json");
   fetchPromise
     .then(response => {
       return response.json();
     })
     .then(people => {
-      people => (jsonFile = JSON.parse(people));
       console.log(people);
+      //people => (jsonFile = JSON.parse(people));
+      //console.log(people);
     });
 }
