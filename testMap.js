@@ -25,8 +25,12 @@ function geocodeLatLng(geocoder, lat, long) {
   geocoder.geocode({ location: latlng }, function(results, status) {
     if (status === "OK") {
       if (results[0]) {
-        let res = results[0].formatted_address.split(",")[1];
-        document.querySelector(".surburb").textContent = res;
+        let arrRes = [];
+        let res = arrRes.push(results[0].formatted_address.split(",")[1]);
+
+        document.querySelector(".surburb").textContent = arrRes[0];
+
+        console.log(res);
       } else {
         window.alert("No results found");
       }
