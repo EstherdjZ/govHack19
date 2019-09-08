@@ -12,6 +12,7 @@ function initMap() {
   );
   map.data.addListener("click", function(event) {
     geocodeLatLng(geocoder, event.latLng.lat(), event.latLng.lng());
+    getResult();
   });
   map.data.setStyle({
     fillColor: "#C7B2B2",
@@ -38,4 +39,16 @@ function geocodeLatLng(geocoder, lat, long) {
       window.alert("Geocoder failed due to: " + status);
     }
   });
+}
+
+function getResult() {
+  const fetchPromise = fetch("136a3438-1120-4bfd-8617-f870edfcd4c8.json");
+  fetchPromise
+    .then(response => {
+      return response.json();
+    })
+    .then(people => {
+      people => (jsonFile = JSON.parse(people));
+      console.log(people);
+    });
 }
