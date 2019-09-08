@@ -8,4 +8,14 @@ function initMap() {
   map.data.loadGeoJson(
     "https://data.gov.au/geoserver/qld-suburb-locality-boundaries-psma-administrative-boundaries/wfs?request=GetFeature&typeName=ckan_6bedcb55_1b1f_457b_b092_58e88952e9f0&outputFormat=json"
   );
+  map.data.addListener('click', function(event){
+        	console.log("THIS IS A TEST");
+        	console.log(event.feature.getGeometry().get);
+        	//console.log(event.getControlPosition());
+        	//console.log(this.getPosition());
+        })
+        map.data.setStyle({
+		  fillColor: '#C7B2B2',
+		  strokeWeight: 0.6
+	});
 }
